@@ -23,6 +23,7 @@ export const Signup = () => {
 
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -51,6 +52,7 @@ export const Signup = () => {
   };
 
   const handleSubmit = async () => {
+    setLoading(true);
     if (validateForm()) {
       try {
         const response = await axios.post(`${import.meta.env.VITE_API_URL}/user/signup`, formData);
@@ -62,6 +64,7 @@ export const Signup = () => {
             lastname: response.data.user.lastName,
             userId: response.data.user._id
           }));
+          setLoading(false);
         toast.success("Signed up successfully!");
         navigate("/dashboard");
       } catch (error) {
@@ -129,7 +132,7 @@ export const Signup = () => {
             </button>
           </div>
           <div className="pt-4">
-            <Button onClick={handleSubmit} label="Sign up" />
+            <Button onClick={handleSubmit} loading={loading} label="Sign up" />
           </div>
         </div>
       </div>

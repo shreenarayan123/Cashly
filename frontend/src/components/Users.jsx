@@ -42,7 +42,7 @@ export const Users = () => {
             </div>
             {openModal && <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
                 <i onClick={handleModal} className="fa-solid fa-xmark absolute top-10 right-10 text-2xl cursor-pointer"></i>
-                <div className="bg-white p-4 rounded-lg shadow-lg w-1/2">
+                <div className="bg-white p-4 rounded-lg shadow-lg lg:w-1/3 w-1/2">
                     <SendMoney people={recipient} />
                 </div>
             </div>}

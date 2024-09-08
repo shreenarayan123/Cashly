@@ -39,7 +39,7 @@ const SideBar = () => {
                 }`}>
                 <div className="h-full w-full flex flex-col   items-center space-y-2 font-medium">
                     <div className='h-full flex w-full flex-col items-center gap-10'>
-                        <img className='bg-red-500' src="../src/assets/Cashly-logo-2.png" alt="" />
+                        <img className='bg-red-500 w-[70%]' src="../src/assets/Cashly-logo-2.png" alt="" />
 
                         {
                             sideBarLink.map((sideLink) => {

@@ -85,7 +85,7 @@ export const SendMoney = ({ people }) => {
             <Toaster />
 
             <div className="border flex flex-col md:flex-row h-min text-card-foreground p-6 w-full bg-white shadow-lg rounded-3xl">
-                <div className="w-full md:w-1/2 pr-0 md:pr-6 mb-6 md:mb-0">
+                <div className="w-full  pr-0 md:pr-6 mb-6 md:mb-0">
                     <div className='flex justify-between items-center w-full mb-6'>
                         {user.firstName && (
                             <div className="flex items-center space-x-4">
