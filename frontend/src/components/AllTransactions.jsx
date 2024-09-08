@@ -5,6 +5,7 @@ import { useUserTransactions } from '../hooks/transaction';
 import { useUser } from '../hooks/user';
 import { formateDate } from './helper';
 import { ColorRing } from 'react-loader-spinner'
+import NoData from '../assets/no-data.avif'
 
 
 const AllTransactions = () => {
@@ -55,7 +56,7 @@ const AllTransactions = () => {
                     </>
                     : <div className='text-center flex flex-col items-center'>
                         <span className='text-xl text-black font-semibold mb-4'> No transactions yet.</span>
-                        <img className='max-w-full h-auto lg:w-2/3 w-full' src="../src/assets/no-data.avif" alt="no-transactions" />
+                        <img className='max-w-full h-auto lg:w-2/3 w-full' src={NoData} alt="no-transactions" />
                     </div>
             }
 
