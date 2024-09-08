@@ -1,5 +1,7 @@
 import React from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import digitalPaymentImage from '../assets/digital-payment.avif';
+import CashlyRemovedBg from '../assets/Cashly-removebg-edited.png'
 
 const Home = () => {
   const navigate = useNavigate();
@@ -13,7 +15,7 @@ const Home = () => {
     <div className="flex flex-col min-h-[100dvh]">
       <header className="px-20 lg:px-28 h-14 flex items-center bg-gradient-to-r from-[#ff6b6b] via-[#ffa500] to-[#8b008b] text-primary-foreground">
 
-        <img className='w-32' src="../src/assets/Cashly-removebg-edited.png" alt="logo" />
+        <img className='w-32' src={CashlyRemovedBg} alt="logo" />
 
         <nav className="ml-auto flex gap-4 sm:gap-10 lg:gap-16">
           <Link to={'/signin'} className="text-base font-medium hover:underline underline-offset-4" >
@@ -50,7 +52,7 @@ const Home = () => {
                 </div>
               </div>
               <img
-                src="../src/assets/digital-payment.avif"
+                src={digitalPaymentImage}
                 width="550"
                 height="550"
                 alt="Hero"
