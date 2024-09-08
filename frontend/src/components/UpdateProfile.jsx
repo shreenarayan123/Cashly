@@ -21,6 +21,7 @@ export const UpdateProfile = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [loading,setLoading] = useState(false);
 
 
   const handleChange = (e) => {
@@ -49,7 +50,8 @@ export const UpdateProfile = () => {
   };
 
   const handleSubmit = async () => {
-    if (!validateForm()) {
+    setLoading(true);
+    if (validateForm()) {
       try {
         await axios.put(`${import.meta.env.VITE_API_URL}/user`, formData
           ,
@@ -59,6 +61,8 @@ export const UpdateProfile = () => {
             }
           }
         );
+
+        setLoading(false);
         toast.success("Profile Updated successfully!");
 
       } catch (error) {
@@ -98,7 +102,7 @@ export const UpdateProfile = () => {
       />
 
       <div className="pt-4">
-        <Button onClick={handleSubmit} label="Update" />
+        <Button onClick={handleSubmit} label="Update" loading={loading} />
       </div>
     </div>
 

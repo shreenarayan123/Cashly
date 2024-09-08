@@ -15,6 +15,7 @@ const Signin = () => {
   })
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const signupSchema = z.object({
@@ -50,11 +51,13 @@ const Signin = () => {
 
   const handleSignin = async () => {
     if (validateForm()) {
+      setLoading(true);
       try {
         const response = await axios.post(`${import.meta.env.VITE_API_URL}/user/signin`, {
           username: formData.username,
           password: formData.password
         });
+        setLoading(false);
         toast.success("Welcome Back !");
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("user", JSON.stringify(
@@ -114,7 +117,7 @@ const Signin = () => {
             </button>
           </div>
           <div className='pt-6'>
-            <Button onClick={handleSignin} label={"Sign in"} />
+            <Button onClick={handleSignin} loading={loading} label={"Sign in"} />
           </div>
         </div>
       </div>

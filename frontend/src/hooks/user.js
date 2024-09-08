@@ -74,7 +74,7 @@ export const useUser = (userId) => {
 };
 
 export const useDeleteUser = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const deleteUser = async (userId) => {

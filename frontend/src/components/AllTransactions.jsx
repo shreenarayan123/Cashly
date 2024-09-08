@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { useUserTransactions } from '../hooks/transaction';
 import { useUser } from '../hooks/user';
 import { formateDate } from './helper';
+import { ColorRing } from 'react-loader-spinner'
+
 
 const AllTransactions = () => {
 
@@ -18,7 +20,15 @@ const AllTransactions = () => {
     }, []);
 
     if (transactionsLoading) {
-        return <div>Loading transactions...</div>;
+        return <div className='w-full flex itmes-center justify-center '><ColorRing
+        visible={true}
+        height="200"
+        width="100"
+        ariaLabel="color-ring-loading"
+        wrapperStyle={{}}
+        wrapperClass="color-ring-wrapper"
+        colors={['#4287f5', '#4287f5', '#4287f5', '#4287f5', '#4287f5']}
+        /></div>;
     }
 
     if (!currentUserId) {
@@ -58,7 +68,10 @@ const AllTransactions = () => {
 function User({ transaction, currentUserId }) {
     const { user, loading: userLoading } = useUser(transaction.receiverId);
     if (userLoading) {
-        return <div>Loading recipient details...</div>;
+        return <div role="status" class="max-w-full pt-3 animate-pulse">
+        <div class="h-8 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-4"></div>
+                
+    </div>;
     }
     return (
         <div className="flex w-full border-b-2 pb-4  items-center justify-between pt-4">
