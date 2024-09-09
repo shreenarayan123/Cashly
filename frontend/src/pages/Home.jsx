@@ -5,7 +5,7 @@ import CashlyRemovedBg from '../assets/Cashly-removebg-edited.png'
 
 const Home = () => {
   const navigate = useNavigate();
-  const token = JSON.parse(localStorage.getItem("token")); {
+  const token = localStorage.getItem("token"); {
     if (token) {
       navigate('/dashboard');
     }
