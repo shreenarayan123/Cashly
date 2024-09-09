@@ -7,6 +7,7 @@ import {SendMoney} from './pages/SendMoney';
 import SidebarHome from './components/SidebarHome';
 import History from './components/History';
 import Settings from './components/Settings';
+import { useState } from 'react';
 
 
 
