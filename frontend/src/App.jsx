@@ -13,29 +13,28 @@ import Settings from './components/Settings';
 
 
 function App() {
-  const token = localStorage.getItem("token");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsAuthenticated(!!token);
+  }, []);
 
   return (
-   <>
-   <BrowserRouter>
-   <Routes>
-    {token ?
-      <Route path='/dashboard'   element={<Dashboard/>}  />
-      :
-      <Route path='/' element={<Home/>} />
-    }
-    <Route path='/signup' element={<Signup/>} />
-    <Route path='/signin' element={<Signin/>} />
-    <Route path='/send' element={<SendMoney/>} />
-    <Route path='/home' element={<SidebarHome/>} />
-    <Route path='/history' element={<History/>} />
-    <Route path='/settings' element={<Settings/>} />
-    
-   </Routes>
-   </BrowserRouter>
-   </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Home />} />
+        <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/signin" />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/send" element={isAuthenticated ? <SendMoney /> : <Navigate to="/signin" />} />
+        <Route path="/home" element={isAuthenticated ? <SidebarHome /> : <Navigate to="/signin" />} />
+        <Route path="/history" element={isAuthenticated ? <History /> : <Navigate to="/signin" />} />
+        <Route path="/settings" element={isAuthenticated ? <Settings /> : <Navigate to="/signin" />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
  
