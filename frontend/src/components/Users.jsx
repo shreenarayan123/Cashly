@@ -22,6 +22,7 @@ export const Users = () => {
         fetchdata();
     }, [filter])
     const filteredUsers = users.filter(user => user._id !== currentUserId);
+    console.log(filteredUsers, "filteredUsers");
     const handleModal = () => {
         setOpenModal(false);
         setRecipient({});
@@ -37,7 +38,7 @@ export const Users = () => {
                 <input type="text" onChange={(e) => setFilter(e.target.value)} placeholder="Search users..." className="w-full px-3 py-2 border rounded-3xl border-slate-200"></input>
             </div>
             <div>
-                <div className="overflow-y-scroll h-[70%] pr-5">{filteredUsers.map((user, index) => <User key={index} user={user} setRecepient={setRecipient} setOpenModal={setOpenModal} />)}
+                <div className="overflow-y-scroll h-[37vh] pr-5">{filteredUsers.map((user, index) => <User key={index} user={user} setRecepient={setRecipient} setOpenModal={setOpenModal} />)}
                 </div>
             </div>
             {openModal && <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
