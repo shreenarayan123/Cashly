@@ -105,6 +105,12 @@ const updateBody = zod.object({
   password: zod.string().min(6).optional(),
 });
 
+router.get("/health", (req, res)=>{
+  res.json({
+    message:"service is up and running !"
+  })
+})
+
 router.put("/", authMiddleware, async (req, res) => {
   const parseResult = updateBody.safeParse(req.body);
   if (!parseResult.success) {
