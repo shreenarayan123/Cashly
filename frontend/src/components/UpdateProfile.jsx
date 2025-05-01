@@ -73,7 +73,7 @@ export const UpdateProfile = () => {
   };
 
   return (
-    <div className="rounded-lg bg-white border-2 border-black w-[80%] lg:w-[55%] md:w-[80%] text-center shadow-xl h-max px-12 p-8 pb-14">
+    <div className="rounded-lg bg-white border-2 border-black w-[100%] lg:w-[55%] md:w-[80%] text-center shadow-xl h-max p-5 md:px-12 md:p-8 md:pb-14">
       <Toaster />
       <div className="text-center pb-5">
         <h2 className="text-4xl  font-bold text-gray-900">Update your profile</h2>

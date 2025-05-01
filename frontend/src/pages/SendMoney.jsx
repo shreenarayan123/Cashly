@@ -56,9 +56,12 @@ export const SendMoney = ({ people }) => {
 
     const handleAmountChange = (e) => {
         const value = e.target.value;
-        // Only allow non-negative numbers and restrict to two decimal places
-        if (/^\d*\.?\d{0,2}$/.test(value) || value === '') {
+        if (/^\d*\.?\d{0,2}$/.test(value) && parseFloat(value) > 0) {
             setAmount(value);
+        } else if (value === '') {
+            setAmount('');
+        } else {
+            toast.error("Please enter a valid amount");
         }
     };
     const handleTransaction = async () => {

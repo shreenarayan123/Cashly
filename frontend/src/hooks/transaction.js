@@ -18,7 +18,6 @@ export const useUserTransactions = () => {
             },
           }
         );
-        console.log(res, "User transactions ");
         setTransactions(res.data);
       } catch (err) {
         console.error("Error fetching user data:", err);

@@ -23,10 +23,10 @@ const SidebarHome = () => {
 		<div className='flex h-screen py-5 px-5 gap-5 bg-slate-200'>
 			<Toaster />
 			<SideBar />
-			<div className='w-full bg-white rounded-3xl py-8 px-8 flex flex-col gap-24'>
+			<div className='w-full bg-white rounded-3xl  p-5 md:p-8 flex flex-col md:gap-24'>
 
 				<div className="flex items-center gap-24  lg:gap-48 ">
-					<div className="flex items-center justify-between w-full">
+					<div className="flex flex-col md:flex-row items-center justify-between w-full">
 						<div className='flex items-center gap-5'>
 							<div className="rounded-full h-12 w-12 lg:w-16 lg:h-16  bg-slate-200 flex justify-center mt-1 mr-2">
 								<div className="flex flex-col justify-center h-full text-xl lg:text-3xl">
@@ -39,13 +39,13 @@ const SidebarHome = () => {
 									<h2 className="text-3xl pb-5 pr-2 font-bold tracking-tighter sm:text-5xl bg-gradient-to-r from-[#ff6b6b] via-[#ffa500] to-[#8b008b] bg-clip-text text-transparent">
 										Hey
 									</h2>
-									<span className='text-5xl pb-5 font-bold'> {user.firstname[0].toUpperCase()}{user.firstname.substring(1)} </span>
+									<span className='md:text-5xl text-3xl pb-5 font-bold'> {user.firstname[0].toUpperCase()}{user.firstname.substring(1)} </span>
 
 								</div>
 								<div onClick={handleCopyId} className='bg-gray-200 cursor-pointer  text-sm h-8 py-1 px-2 w-max rounded-xl'><span className='text-black font-semibold'>A/C id : </span>{user.userId.substring(0, 6)}.........{user.userId.substring(14)}</div>
 							</div>
 						</div>
-						<div className="flex flex-row items-center  justify-between bg-white lg:bg-gradient-to-r from-gray-100 to-gray-200 w-full lg:w-[65%] px-6 py-4 rounded-3xl lg:shadow-md">
+						<div className="flex flex-row  items-center  justify-between  lg:bg-gradient-to-r from-gray-100 to-gray-200 w-full lg:w-[65%] px-6 py-4 rounded-3xl lg:shadow-md">
 							<div className='hidden lg:block'>
 								<p className="text-sm text-gray-700 italic">
 									To initiate a transaction: Search recipient by name or enter account ID here

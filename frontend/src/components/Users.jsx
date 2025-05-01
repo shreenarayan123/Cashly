@@ -22,7 +22,6 @@ export const Users = () => {
         fetchdata();
     }, [filter])
     const filteredUsers = users.filter(user => user._id !== currentUserId);
-    console.log(filteredUsers, "filteredUsers");
     const handleModal = () => {
         setOpenModal(false);
         setRecipient({});
@@ -30,7 +29,7 @@ export const Users = () => {
     return <div className="flex flex-col w-full h-full">
 
 
-        <div className="bg-gray-100 flex flex-col p-10 rounded-3xl h-[57vh] overflow-y-hidden">
+        <div className="bg-gray-100 flex flex-col p-5 md:p-10 rounded-3xl h-[62vh] md:h-[57vh] overflow-y-hidden">
             <div className="font-bold   text-lg ">
                 People
             </div>
@@ -38,7 +37,7 @@ export const Users = () => {
                 <input type="text" onChange={(e) => setFilter(e.target.value)} placeholder="Search users..." className="w-full px-3 py-2 border rounded-3xl border-slate-200"></input>
             </div>
             <div>
-                <div className="overflow-y-scroll h-[37vh] pr-5">{filteredUsers.map((user, index) => <User key={index} user={user} setRecepient={setRecipient} setOpenModal={setOpenModal} />)}
+                <div className="overflow-y-scroll h-[45vh] md:h-[37vh]  pr-5">{filteredUsers.map((user, index) => <User key={index} user={user} setRecepient={setRecipient} setOpenModal={setOpenModal} />)}
                 </div>
             </div>
             {openModal && <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
@@ -62,20 +61,19 @@ function User({ user, setRecepient, setOpenModal }) {
     return <div className="flex justify-between pt-5">
         <div className="flex">
             <div className="rounded-full h-12 w-12 bg-slate-200 flex justify-center mt-1 mr-2">
-                <div className="flex flex-col justify-center h-full text-xl">
+                <div className="flex flex-col justify-center h-full md:text-xl text-sm">
                     {user.firstName[0].toUpperCase()}
                 </div>
             </div>
-            <div className="flex flex-col justify-center h-ful">
+            <div className="flex flex-col justify-center h-full">
                 <div>
                     {user.firstName} {user.lastName}
                 </div>
             </div>
         </div>
 
-        <div className="flex flex-col justify-center ">
+        <div className="flex flex-col   justify-center ">
             <Button label={"Send Money"} onClick={sendRecipient} />
         </div>
     </div>
 }
-// navigate("/send?id=" + user._id + "&name=" + user.firstName)

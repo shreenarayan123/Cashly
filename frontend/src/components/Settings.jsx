@@ -31,8 +31,8 @@ const Settings = () => {
 					Actions
 				</h2>
 				<UpdateProfile />
-				<div className='flex flex-col items-center gap-9 bg-red-100 rounded-2xl border-2 border-red-900 w-[60%] lg:w-[43%]  py-4 px-8'>
-					<h2 className='text-xl relative right-24 lg:right-36 font-semibold text-red-900'>Danger Zone</h2>
+				<div className='flex flex-col items-center gap-4 md:gap-9 bg-red-100 rounded-2xl border-2 border-red-900 w-[100%] lg:w-[43%]  py-4 px-8'>
+					<h2 className='text-xl relative right-16 md:right-24 lg:right-36 font-semibold text-red-900'>Danger Zone</h2>
 					<span onClick={handleDelete} className='text-base flex items-center justify-around  py-2 w-[55%] lg:w-[40%] cursor-pointer hover:bg-red-600 text-center border-2 border-red-500 rounded-2xl bg-white font-semibold text-red-600 hover:text-white'>  {userLoading == <ColorRing
 						visible={true}
 						height="40"
@@ -47,7 +47,7 @@ const Settings = () => {
 						<div className='flex flex-col items-start gap-1 '>
 							<span className='text-red-900'>This action is irreversible</span>
 							<span className='text-red-900'>This  will delete all the data associated with your account in our Database</span>
-							<span className='text-red-900'>You will no longer be able to access your account</span>
+							<span className='text-red-900 hidden md:block'>You will no longer be able to access your account</span>
 
 						</div>
 					</div>

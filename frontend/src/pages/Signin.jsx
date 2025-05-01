@@ -26,7 +26,6 @@ const Signin = () => {
 
   const validateForm = () => {
     const validationResult = signupSchema.safeParse(formData);
-    console.log(validationResult, "validation results")
     if (validationResult.success) {
       setErrors({});
       return true;
@@ -69,14 +68,14 @@ const Signin = () => {
           }));
         navigate("/dashboard");
       } catch (error) {
-        toast.error(error.data.message);
+        toast.error(error.response.data.message);
       }
     }
   }
   return (
     <div className='h-screen w-full bg-gradient-to-r from-[#f36060] via-[#e6b65d] to-[#e6da56]  flex justify-center'>
       <Toaster />
-      <div className='flex flex-col justify-center md:w-2/3  lg:w-1/3'>
+      <div className='flex flex-col justify-center w-[90%] md:w-2/3  lg:w-1/3'>
         <div className='rounded-xl bg-white w-full text-center shadow-xl  h-max px-12 py-14'>
           <div className="text-center">
             <h2 className=" text-4xl font-bold text-gray-900">Sign in to your account</h2>
